@@ -1,1 +1,4 @@
-// Coloque aqui suas actions
+export const LOGIN = 'Login is done';
+const loginDone = ({ email }) => ({ type: LOGIN, email });
+
+export default loginDone;
