@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { fetchCurrencies } from '../redux/actions';
+import { fetchCurrencies, saveExpense } from '../redux/actions';
+import requestExchange from '../services/requestExchange';
 
 class WalletForm extends Component {
   state = {
-    value: 0,
+    value: '',
     description: '',
     currency: 'USD',
-    payment: 'Cartão de crédito',
-    type: 'Alimentação',
+    method: 'Cartão de crédito',
+    tag: 'Alimentação',
+    id: 0,
+    exchangeRates: {},
   };
 
   componentDidMount() {
@@ -20,6 +23,25 @@ class WalletForm extends Component {
   inputHandler = ({ target }) => {
     this.setState({
       [target.name]: target.value,
+    });
+  };
+
+  onClickAddButton = async (event) => {
+    event.preventDefault();
+    const { dispatch } = this.props;
+    const resultExchange = await requestExchange();
+    this.setState({
+      exchangeRates: resultExchange,
+    }, () => {
+      const { value, description, currency, method, tag, id, exchangeRates } = this.state;
+      const expense = { id, value, description, currency, method, tag, exchangeRates };
+      dispatch(saveExpense(expense));
+
+      this.setState((previousState) => ({
+        value: '',
+        description: '',
+        id: previousState.id + 1,
+      }));
     });
   };
 
@@ -70,7 +92,7 @@ class WalletForm extends Component {
           </select>
 
           <select
-            name="payment"
+            name="method"
             data-testid="method-input"
             value={ payment }
             onChange={ this.inputHandler }
@@ -81,7 +103,7 @@ class WalletForm extends Component {
           </select>
 
           <select
-            name="type"
+            name="tag"
             data-testid="tag-input"
             value={ type }
             onChange={ this.inputHandler }
@@ -92,6 +114,13 @@ class WalletForm extends Component {
             <option value="Trabalho">Trabalho</option>
             <option value="Transporte">Transporte</option>
           </select>
+
+          <button
+            type="submit"
+            onClick={ this.onClickAddButton }
+          >
+            Adicionar despesa
+          </button>
         </form>
       </div>
     );
@@ -105,6 +134,7 @@ WalletForm.propTypes = {
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps)(WalletForm);

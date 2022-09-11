@@ -1,9 +1,15 @@
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from '../actions';
+import {
+  FETCH_REQUEST,
+  FETCH_SUCCESS,
+  FETCH_FAILURE,
+  SAVE_EXPENSE,
+} from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
   isFetching: false,
   error: '',
+  expenses: [],
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -25,6 +31,12 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       error: action.error,
+    };
+
+  case SAVE_EXPENSE:
+    return {
+      ...state,
+      expenses: [...state.expenses, action.expenses],
     };
 
   default: return state;

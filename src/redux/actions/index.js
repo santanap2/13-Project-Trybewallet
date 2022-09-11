@@ -29,3 +29,9 @@ export const fetchCurrencies = () => async (dispatch) => {
     dispatch(fetchFailure(error));
   }
 };
+
+export const SAVE_EXPENSE = 'Save expenses';
+export const saveExpense = (state) => ({
+  type: SAVE_EXPENSE,
+  expenses: state,
+});
