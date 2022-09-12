@@ -41,3 +41,17 @@ export const removeExpense = (id) => ({
   type: REMOVE_EXPENSE,
   id,
 });
+
+export const EDIT_EXPENSE = 'Edit expense';
+export const editExpense = (expense) => ({
+  type: EDIT_EXPENSE,
+  editor: true,
+  idToEdit: expense.id,
+  expense,
+});
+
+export const SAVE_NEW_EXPENSES = 'Save new expense';
+export const saveNewExpenses = (expenses) => ({
+  type: SAVE_NEW_EXPENSES,
+  expenses,
+});

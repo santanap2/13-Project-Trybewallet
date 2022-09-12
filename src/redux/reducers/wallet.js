@@ -4,6 +4,8 @@ import {
   FETCH_FAILURE,
   SAVE_EXPENSE,
   REMOVE_EXPENSE,
+  EDIT_EXPENSE,
+  SAVE_NEW_EXPENSES,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -11,6 +13,8 @@ const INITIAL_STATE = {
   isFetching: false,
   error: '',
   expenses: [],
+  editor: false,
+  idToEdit: 0,
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -44,6 +48,21 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: state.expenses.filter((item) => item.id !== action.id),
+    };
+
+  case EDIT_EXPENSE:
+    return {
+      ...state,
+      editor: action.editor,
+      idToEdit: action.idToEdit,
+    };
+
+  case SAVE_NEW_EXPENSES:
+    return {
+      ...state,
+      editor: false,
+      idToEdit: '',
+      expenses: action.expenses,
     };
 
   default: return state;
