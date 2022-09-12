@@ -35,3 +35,9 @@ export const saveExpense = (state) => ({
   type: SAVE_EXPENSE,
   expenses: state,
 });
+
+export const REMOVE_EXPENSE = 'Remove expense';
+export const removeExpense = (id) => ({
+  type: REMOVE_EXPENSE,
+  id,
+});
