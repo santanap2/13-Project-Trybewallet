@@ -1,0 +1,144 @@
+.main-form {
+  background-color: rgb(240, 240, 240);
+  width: 1137px;
+  height: 134px;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 156px;
+  left: 115px;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+}
+
+.button-container {
+  background-color: rgb(255, 255, 255);
+  width: 1137px;
+  height: 134px;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 290px;
+  left: 115px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+}
+
+.add-button {
+  background-color: rgb(47, 193, 140);
+  width: 330px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: rgba(47, 193, 140, 0.8);
+}
+
+.first-form-row, .second-form-row {
+  width: 950px;
+  height: 67px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(0, 59, 229);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.description-input {
+  padding: 10px;
+  text-align: justify;
+  width: 330px;
+  height: 40px;
+  color: rgb(0, 59, 229);
+  border: rgb(0, 59, 229) 1px solid;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-weight: 600;
+  background-color: rgb(240, 240, 240);
+}
+
+.description-input:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.tag-input {
+  padding: 10px;
+  text-align: justify;
+  width: 195px;
+  height: 40px;
+  color: rgb(0, 59, 229);
+  border: rgb(0, 59, 229) 1px solid;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-weight: 600;
+  background-color: rgb(240, 240, 240);
+}
+
+.tag-input:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.value-input {
+  padding: 10px;
+  text-align: justify;
+  width: 160px;
+  height: 40px;
+  color: rgb(0, 59, 229);
+  border: rgb(0, 59, 229) 1px solid;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-weight: 600;
+  background-color: rgb(240, 240, 240);
+}
+
+.value-input:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.select-method {
+  padding: 10px;
+  text-align: justify;
+  width: 228px;
+  height: 40px;
+  color: rgb(0, 59, 229);
+  border: rgb(0, 59, 229) 1px solid;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-weight: 600;
+  background-color: rgb(240, 240, 240);
+}
+
+.select-method:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.select-currency {
+  padding: 10px;
+  text-align: justify;
+  width: 91px;
+  height: 40px;
+  color: rgb(0, 59, 229);
+  border: rgb(0, 59, 229) 1px solid;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-weight: 600;
+  background-color: rgb(240, 240, 240);
+}
+
+.select-currency:hover {
+  background-color: rgb(250, 250, 250);
+}

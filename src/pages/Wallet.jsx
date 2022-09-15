@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import WalletForm from '../components/WalletForm';
 import Table from '../components/Table';
 import ExpenseEditor from '../components/ExpenseEditor';
+import '../css/Wallet.css';
 
 class Wallet extends React.Component {
   render() {
@@ -12,8 +13,10 @@ class Wallet extends React.Component {
     return (
       <div>
         <Header />
-        { editor ? <ExpenseEditor /> : <WalletForm /> }
-        <Table />
+        <div className="wallet-container">
+          { editor ? <ExpenseEditor /> : <WalletForm /> }
+          <Table />
+        </div>
       </div>
     );
   }

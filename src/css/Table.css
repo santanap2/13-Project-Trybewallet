@@ -1,0 +1,109 @@
+.table-container {
+  position: absolute;
+  z-index: 0;
+  width: 1257px;
+  height: 600px;
+  top: 156px;
+  left: 55px;
+  background-color: rgb(0, 59, 229);
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  overflow: auto;
+}
+
+.main-table {
+  margin: 280px 0 0 60px;
+  width: 1137px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titles-row {
+  font-size: 14px;
+  height: 50px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-title {
+  border-left: 1px white solid;
+  width: 105px;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+  padding: 0 0 0 20px;
+  text-align: start;
+}
+
+.description {
+  width: 200px;
+  border-left: none;
+  padding: 0;
+}
+
+.tag {
+  width: 120px;
+}
+
+.currency {
+  width: 150px;
+}
+
+.buttons {
+  padding-left: 10px;
+}
+
+.item-row {
+  font-size: 16px;
+  display: flex;
+  color: rgb(47, 193, 140);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.item-block {
+  width: 105px;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
+  padding: 0 0 0 20px;
+}
+
+.item-description {
+  width: 200px;
+  padding: 0;
+}
+
+.item-tag {
+  width: 120px;
+}
+
+.item-currency {
+  width: 150px;
+}
+
+.edit-delete-button {
+  border: none;
+  background-color: rgba(240, 248, 255, 0);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.edit-delete-button:disabled {
+  opacity: 0.5;
+  cursor:default;
+}

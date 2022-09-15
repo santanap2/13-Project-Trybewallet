@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Trybewallet</h1>
+        <div className="background" />
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/carteira" component={ Wallet } />

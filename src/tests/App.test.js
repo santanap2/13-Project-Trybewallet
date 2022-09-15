@@ -137,25 +137,62 @@ describe('Testa o componente Table da aplicação Trybewallet', () => {
 });
 
 describe('Testa o componente ExpenseEditor da aplicação Trybewallet', () => {
+  jest.setTimeout(10000);
   it('Testa se é possível editar uma despesa', async () => {
-    const { store } = renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
+    renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
 
     const addButton = screen.getByRole('button', { name: /adicionar despesa/i });
+    const value = screen.getByTestId('value-input');
+    const description = screen.getByTestId('description-input');
+
+    userEvent.type(value, '10');
+    userEvent.type(description, 'teste 1');
     userEvent.click(addButton);
 
     await waitFor(async () => {
-      const editButton = screen.getByRole('button', { name: 'Editar' });
-      userEvent.click(editButton);
+      userEvent.type(value, '20');
+      userEvent.type(description, 'teste 2');
+      userEvent.click(addButton);
 
-      const description = screen.getByTestId('description-input');
-      const editExpenseButton = screen.getByRole('button', { name: /editar despesa/i });
+      await waitFor(async () => {
+        const editButtonArray = screen.getAllByRole('button', { name: 'Editar' });
+        userEvent.click(editButtonArray[0]);
 
-      userEvent.type(description, 'teste');
-      userEvent.click(editExpenseButton);
+        const editExpenseButton = screen.getByRole('button', { name: /editar despesa/i });
+        userEvent.type(description, 'testando 1');
+        userEvent.click(editExpenseButton);
 
-      await waitFor(() => {
-        expect(store.getState().wallet.expenses[0].description).toBe('teste');
+        await waitFor(() => {
+          const expense1 = screen.getByText('testando 1');
+          const expense2 = screen.getByText('teste 2');
+
+          expect(expense1).toBeInTheDocument();
+          expect(expense2).toBeInTheDocument();
+        });
       });
     });
   });
+
+  // it('Testa', async () => {
+  //   const { store } = renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
+
+  //   const addButton = screen.getByRole('button', { name: /adicionar despesa/i });
+  //   userEvent.click(addButton);
+
+  //   await waitFor(async () => {
+  //     userEvent.click(addButton);
+
+  //     await waitFor(async () => {
+  //       const editButtonArray = screen.getAllByRole('button', { name: 'Editar' });
+  //       userEvent.click(editButtonArray[0]);
+
+  //       const editButtonForm = screen.getByRole('button', { name: 'Editar despesa' });
+  //       userEvent.click(editButtonForm);
+
+  //       await waitFor(() => {
+  //         console.log(store.getState().wallet.expenses);
+  //       });
+  //     });
+  //   });
+  // });
 });

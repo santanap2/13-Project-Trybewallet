@@ -55,6 +55,7 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       editor: action.editor,
       idToEdit: action.idToEdit,
+      expenseBeingEdited: action.expense,
     };
 
   case SAVE_NEW_EXPENSES:

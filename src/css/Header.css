@@ -1,0 +1,59 @@
+.header-container {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 115px;
+  width: 1137px;
+  height: 156px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+}
+
+.header {
+  position: absolute;
+  top: 0px;
+  width: 950px;
+  height: 156px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-header {
+  width: 250px;
+  height: 52px;
+}
+
+.total-expenses {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 59, 229);
+}
+
+.total-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 5px;
+}
+
+.total {
+  margin: 0 5px 0 0;
+}
+
+.email-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(47, 193, 140);
+}
